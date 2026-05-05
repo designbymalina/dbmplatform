@@ -52,13 +52,12 @@
 # PUBLIC (TYLKO WYBRANE)
 # =========================
 !/public
-!/public/.htaccess
+# !/public/.htaccess
 !/public/favicon.ico
 !/public/index.php
-# ignoruj (tymczasowo dla localhost)
-# wymaga usuń z git: git rm --cached public/.htaccess
-# przywróć: git add public/.htaccess
-# /public/.htaccess
+# ignoruj sledzenie pliku .htaccess (tymczasowo dla localhost)
+# Wykonaj: git update-index --assume-unchanged public/.htaccess
+# Cofnij: git update-index --no-assume-unchanged public/.htaccess
 
 # =========================
 # SRC (TYLKO WYBRANE)
