@@ -1,0 +1,19 @@
+includes:
+    # - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    level: 6
+    bootstrapFiles:
+        - .phpstan-bootstrap.php
+
+    scanFiles:
+        - bootstrap/autoload.php
+        - bootstrap/support.php
+        - bootstrap/handler.php
+        - bootstrap/error.php
+
+    paths:
+        - src
+        - modules
+
+    checkMissingIterableValueType: true
