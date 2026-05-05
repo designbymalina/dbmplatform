@@ -44,12 +44,9 @@
 # MODULES (TYLKO WYBRANE)
 # =========================
 /modules/*
-!/modules/Installer
+!/modules/
+!/modules/Installer/
 !/modules/Installer/**
-# INFO! Nie podświetla?
-# !/modules/Installer/Constants/InstallerConstant.php
-# !/modules/Translations/installer.en.php
-# !/modules/Translations/installer.pl.php
 
 # =========================
 # PUBLIC (TYLKO WYBRANE)
