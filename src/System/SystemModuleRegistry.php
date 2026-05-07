@@ -77,11 +77,22 @@ final class SystemModuleRegistry
 
             $modules = self::load($cacheFile);
 
-            // dalej źle - exception
+            // jeśli jeszcze jest bład
             if (!self::isValid($modules, $modulePath)) {
-                throw new \RuntimeException(
-                    "System module cache mismatch. Remove cache file: " . basename($cacheFile)
-                );
+                self::warmUp($cacheFile);
+
+                clearstatcache(true, $cacheFile);
+
+                self::invalidateCache($cacheFile);
+
+                // Linux / OPcache / shared hosting sync
+                usleep(50000); // 50ms
+
+                // drugi odczyt
+                $modules = self::load($cacheFile);
+
+                // pierwszy request po install/deploy może jeszcze widzieć stary cache
+                // ale próbujemy rejestrować moduły mimo wszystko
             }
         }
 
@@ -132,7 +143,7 @@ final class SystemModuleRegistry
 
         file_put_contents($tmpFile, self::contentArray($modules, $hash), LOCK_EX);
 
-        if (!rename($tmpFile, $cacheFile)) {
+        if (!@rename($tmpFile, $cacheFile)) {
             unlink($tmpFile);
             throw new \RuntimeException('Failed to write system module cache.');
         }
