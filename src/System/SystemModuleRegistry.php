@@ -85,9 +85,6 @@ final class SystemModuleRegistry
 
                 self::invalidateCache($cacheFile);
 
-                // Linux / OPcache / shared hosting sync
-                usleep(50000); // 50ms
-
                 // drugi odczyt
                 $modules = self::load($cacheFile);
 
