@@ -91,8 +91,7 @@ final class SystemModuleRegistry
                 // drugi odczyt
                 $modules = self::load($cacheFile);
 
-                // pierwszy request po install/deploy może jeszcze widzieć stary cache
-                // ale próbujemy rejestrować moduły mimo wszystko
+                // @INFO Pierwszy request po install/deploy może jeszcze widzieć stary cache
             }
         }
 
