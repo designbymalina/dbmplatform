@@ -132,15 +132,5 @@ final class ModuleLifecycleManager
     private function rebuildCache(): void
     {
         $this->cache->rebuild([$this->bootstrapper, 'discoverModules']);
-
-        // @INFO Problem na Linuxie z OPcache!?
-        // Linux / OPcache / shared hosting sync
-        clearstatcache();
-
-        if (function_exists('opcache_reset')) {
-            opcache_reset();
-        }
-
-        usleep(100000); // 100ms
     }
 }

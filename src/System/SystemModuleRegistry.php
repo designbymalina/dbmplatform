@@ -23,16 +23,18 @@ namespace App\System;
 use App\System\Contracts\SystemModuleInterface;
 use Dbm\Core\DependencyContainer;
 use Dbm\Core\Paths;
-use FilesystemIterator;
+use Dbm\Infrastructure\Log\Logger;
 
 final class SystemModuleRegistry
 {
+    private static ?Logger $logger = null;
+
     public static function register(DependencyContainer $container): void
     {
         $cacheFile = self::cachePath();
         $modulePath = self::modulePath();
 
-        // brak katalogu = brak system modules
+        // safety: brak modułów
         if (!is_dir($modulePath)) {
             return;
         }
@@ -44,55 +46,41 @@ final class SystemModuleRegistry
             mkdir($dir, 0o775, true);
         }
 
+        // load cache (SAFE)
         clearstatcache(true, $cacheFile);
-
-        // brak cache - build
-        if (!file_exists($cacheFile)) {
-            self::warmUp($cacheFile);
-        }
-
-        if (!file_exists($cacheFile)) {
-            throw new \RuntimeException("System module cache missing.");
-        }
 
         $modules = self::load($cacheFile);
 
-        if (count($modules) <= 1) {
-            // jeśli katalog też pusty
-            if (!self::hasModuleFiles($modulePath)) {
-                return;
-            }
-
-            self::warmUp($cacheFile);
-            $modules = self::load($cacheFile);
-        }
-
-        // count mismatch - rebuild
-        if (!self::isValid($modules, $modulePath)) {
-            self::warmUp($cacheFile);
+        // jeśli cache uszkodzony -> fallback rebuild
+        if (!self::isCacheUsable($modules, $modulePath)) {
+            self::safeWarmUp($cacheFile, $modulePath);
 
             clearstatcache(true, $cacheFile);
 
             self::invalidateCache($cacheFile);
 
             $modules = self::load($cacheFile);
-
-            // jeśli jeszcze jest bład
-            if (!self::isValid($modules, $modulePath)) {
-                self::warmUp($cacheFile);
-
-                clearstatcache(true, $cacheFile);
-
-                self::invalidateCache($cacheFile);
-
-                // drugi odczyt
-                $modules = self::load($cacheFile);
-
-                // @INFO Pierwszy request po install/deploy może jeszcze widzieć stary cache
-            }
         }
 
-        // rejestracja
+        // jeśli nadal cache uszkodzony - direct scan fallback
+        if (!self::isCacheUsable($modules, $modulePath)) {
+            self::logger()->warning(
+                'System module cache invalid. Using filesystem scan fallback.'
+            );
+
+            $modules = self::scanModules($modulePath);
+        }
+
+        // total fail
+        if ($modules === []) {
+            self::logger()->warning(
+                'SystemModuleRegistry failed to load any modules.'
+            );
+
+            return;
+        }
+
+        // 6. register modules
         foreach ($modules as $key => $class) {
             if ($key === '__hash') {
                 continue;
@@ -110,10 +98,68 @@ final class SystemModuleRegistry
         }
     }
 
-    public static function warmUp(string $cacheFile): void
+    public static function rebuild(): void
     {
-        $path = self::modulePath();
+        self::safeWarmUp(
+            self::cachePath(),
+            self::modulePath()
+        );
+    }
 
+    public static function cachePath(): string
+    {
+        return Paths::joinPaths(
+            Paths::basePath(),
+            'storage',
+            'cache',
+            'system_modules.php'
+        );
+    }
+
+    private static function safeWarmUp(string $cacheFile, string $modulePath): void
+    {
+        try {
+            $files = glob($modulePath . '/*Module.php') ?: [];
+            sort($files);
+
+            $modules = [];
+
+            foreach ($files as $file) {
+                $class = 'App\\System\\Module\\' . basename($file, '.php');
+
+                if (!class_exists($class, false)) {
+                    require_once $file;
+                }
+
+                if (is_subclass_of($class, SystemModuleInterface::class)) {
+                    $modules[] = $class;
+                }
+            }
+
+            $hash = md5(implode('|', $files));
+
+            $tmpFile = $cacheFile . '.' . uniqid('', true);
+
+            file_put_contents(
+                $tmpFile,
+                self::contentArray($modules, $hash),
+                LOCK_EX
+            );
+
+            rename($tmpFile, $cacheFile);
+
+            self::invalidateCache($cacheFile);
+
+        } catch (\Throwable) {
+            // silent fail (boot must never break)
+        }
+    }
+
+    /**
+     * @return list<class-string<SystemModuleInterface>>
+     */
+    private static function scanModules(string $path): array
+    {
         $files = glob($path . '/*Module.php') ?: [];
 
         sort($files);
@@ -132,29 +178,7 @@ final class SystemModuleRegistry
             }
         }
 
-        $hash = md5(implode('|', $files));
-
-        // zapis atomowy (rename w systemie plików jest atomowe)
-        $tmpFile = $cacheFile . '.' . uniqid('', true);
-
-        file_put_contents($tmpFile, self::contentArray($modules, $hash), LOCK_EX);
-
-        if (!@rename($tmpFile, $cacheFile)) {
-            unlink($tmpFile);
-            throw new \RuntimeException('Failed to write system module cache.');
-        }
-
-        self::invalidateCache($cacheFile);
-    }
-
-    public static function cachePath(): string
-    {
-        return Paths::joinPaths(
-            Paths::basePath(),
-            'storage',
-            'cache',
-            'system_modules.php'
-        );
+        return $modules;
     }
 
     private static function modulePath(): string
@@ -165,10 +189,39 @@ final class SystemModuleRegistry
     /**
      * @param array<int|string, class-string<SystemModuleInterface>|string> $modules
      */
+    private static function isCacheUsable(array $modules, string $path): bool
+    {
+        if (!isset($modules['__hash'])) {
+            return false;
+        }
+
+        $files = glob($path . '/*Module.php') ?: [];
+        sort($files);
+
+        return $modules['__hash'] === md5(implode('|', $files));
+    }
+
+    /**
+     * @return array<int|string, class-string<SystemModuleInterface>|string>
+     */
+    private static function load(string $file): array
+    {
+        if (!is_file($file)) {
+            return [];
+        }
+
+        $data = require $file;
+
+        return is_array($data) ? $data : [];
+    }
+
+    /**
+     * @param array<int|string, class-string<SystemModuleInterface>|string> $modules
+     */
     private static function contentArray(array $modules, string $hash): string
     {
-        $content = "<?php\n\nreturn [\n";
-        $content .= "    '__hash' => '{$hash}',\n\n";
+        $content = "<?php\n\n// DbM Framework\n// Static modules cache file.\n\nreturn [\n";
+        $content .= "    '__hash' => '{$hash}',\n";
 
         foreach ($modules as $module) {
             $content .= "    {$module}::class,\n";
@@ -179,48 +232,19 @@ final class SystemModuleRegistry
         return $content;
     }
 
-    /**
-     * @param array<int|string, class-string<SystemModuleInterface>|string> $modules
-     */
-    private static function isValid(array $modules, string $path): bool
-    {
-        if (!isset($modules['__hash'])) {
-            return false;
-        }
-
-        $files = glob($path . '/*Module.php') ?: [];
-        sort($files);
-
-        $currentHash = md5(implode('|', $files));
-
-        return $modules['__hash'] === $currentHash;
-    }
-
-    private static function hasModuleFiles(string $path): bool
-    {
-        foreach (new FilesystemIterator($path, FilesystemIterator::SKIP_DOTS) as $file) {
-            if ($file->isFile() && str_ends_with($file->getFilename(), 'Module.php')) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * @return array<int|string, class-string<SystemModuleInterface>|string>
-     */
-    private static function load(string $file): array
-    {
-        $data = require $file;
-
-        return is_array($data) ? $data : [];
-    }
-
     private static function invalidateCache(string $file): void
     {
         if (function_exists('opcache_invalidate')) {
             opcache_invalidate($file, true);
         }
+    }
+
+    private static function logger(): Logger
+    {
+        if (self::$logger === null) {
+            self::$logger = new Logger();
+        }
+
+        return self::$logger;
     }
 }

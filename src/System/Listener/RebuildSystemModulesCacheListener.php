@@ -22,8 +22,6 @@ final class RebuildSystemModulesCacheListener
     // Optional $event for future use: log, debug, selective rebuild
     public function handle(ModulesChangedEvent $event): void
     {
-        $cacheFile = SystemModuleRegistry::cachePath();
-
-        SystemModuleRegistry::warmUp($cacheFile);
+        SystemModuleRegistry::rebuild();
     }
 }
