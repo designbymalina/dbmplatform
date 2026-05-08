@@ -41,6 +41,21 @@
 /_Documents/extracted
 
 # =========================
+# LIBRARIES (TYLKO WYBRANE)
+# =========================
+!/libraries/
+!/libraries/designbymalina/
+# ignoruj wszystko w designbymalina
+/libraries/designbymalina/*
+# ale pozwól na dbmframework
+!/libraries/designbymalina/dbmframework/
+!/libraries/designbymalina/dbmframework/**
+# inne biblioteki
+!/libraries/guzzlehttp/**
+!/libraries/phpmyadmin/**
+!/libraries/psr/**
+
+# =========================
 # MODULES (TYLKO WYBRANE)
 # =========================
 /modules/*
