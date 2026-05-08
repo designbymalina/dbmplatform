@@ -8,12 +8,6 @@
  * @copyright Design by Malina (All Rights Reserved)
  * @license MIT
  * @link https://www.dbm.org.pl
- *
- * @INFO Można rozszerzyć o Dependency Graph dla sortowania kolejności.
- *
- * Odświeżenie cache:
- * php bin/cache:warmup or
- * SystemModuleRegistry::warmUp($cacheFile);
  */
 
 declare(strict_types=1);
@@ -42,17 +36,19 @@ final class SystemModuleRegistry
         // ensure cache dir
         $dir = dirname($cacheFile);
 
-        if (!is_dir($dir)) {
-            mkdir($dir, 0o775, true);
+        if (!is_dir($dir) && !mkdir($dir, 0o775, true) && !is_dir($dir)) {
+            return;
         }
 
         // load cache (SAFE)
         clearstatcache(true, $cacheFile);
 
+        $currentHash = self::currentHash($modulePath);
+
         $modules = self::load($cacheFile);
 
         // jeśli cache uszkodzony -> fallback rebuild
-        if (!self::isCacheUsable($modules, $modulePath)) {
+        if (!self::isCacheUsable($modules, $currentHash)) {
             self::safeWarmUp($cacheFile, $modulePath);
 
             clearstatcache(true, $cacheFile);
@@ -62,12 +58,8 @@ final class SystemModuleRegistry
             $modules = self::load($cacheFile);
         }
 
-        // jeśli nadal cache uszkodzony - direct scan fallback
-        if (!self::isCacheUsable($modules, $modulePath)) {
-            self::logger()->warning(
-                'System module cache invalid. Using filesystem scan fallback.'
-            );
-
+        // jeśli nadal cache nie kompletny -> direct scan fallback
+        if (!self::isCacheUsable($modules, $currentHash)) {
             $modules = self::scanModules($modulePath);
         }
 
@@ -80,7 +72,7 @@ final class SystemModuleRegistry
             return;
         }
 
-        // 6. register modules
+        // register modules
         foreach ($modules as $key => $class) {
             if ($key === '__hash') {
                 continue;
@@ -120,6 +112,7 @@ final class SystemModuleRegistry
     {
         try {
             $files = glob($modulePath . '/*Module.php') ?: [];
+
             sort($files);
 
             $modules = [];
@@ -140,16 +133,22 @@ final class SystemModuleRegistry
 
             $tmpFile = $cacheFile . '.' . uniqid('', true);
 
-            file_put_contents(
+            $result = file_put_contents(
                 $tmpFile,
                 self::contentArray($modules, $hash),
                 LOCK_EX
             );
 
-            rename($tmpFile, $cacheFile);
+            if ($result === false) {
+                return;
+            }
+
+            if (!@rename($tmpFile, $cacheFile)) {
+                @unlink($tmpFile);
+                return;
+            }
 
             self::invalidateCache($cacheFile);
-
         } catch (\Throwable) {
             // silent fail (boot must never break)
         }
@@ -189,16 +188,19 @@ final class SystemModuleRegistry
     /**
      * @param array<int|string, class-string<SystemModuleInterface>|string> $modules
      */
-    private static function isCacheUsable(array $modules, string $path): bool
+    private static function isCacheUsable(array $modules, string $currentHash): bool
     {
-        if (!isset($modules['__hash'])) {
-            return false;
-        }
+        return isset($modules['__hash'])
+            && $modules['__hash'] === $currentHash;
+    }
 
+    private static function currentHash(string $path): string
+    {
         $files = glob($path . '/*Module.php') ?: [];
+
         sort($files);
 
-        return $modules['__hash'] === md5(implode('|', $files));
+        return md5(implode('|', $files));
     }
 
     /**
@@ -210,7 +212,11 @@ final class SystemModuleRegistry
             return [];
         }
 
-        $data = require $file;
+        try {
+            $data = require $file;
+        } catch (\Throwable) {
+            return [];
+        }
 
         return is_array($data) ? $data : [];
     }
