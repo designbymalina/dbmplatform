@@ -1,6 +1,7 @@
 {
   "name": "designbymalina/dbmframework",
   "description": "DBM Framework",
+  "homepage": "https://dbm.org.pl",
   "type": "library",
   "version": "6.0.0",
   "license": "MIT",
@@ -17,5 +18,8 @@
     "psr/http-client": "^1.0",
     "psr/http-factory": "^1.0",
     "psr/log": "^1.0"
+  },
+  "support": {
+    "source": "https://github.com/designbymalina/dbmframework"
   }
 }
