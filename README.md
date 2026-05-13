@@ -55,6 +55,14 @@ The platform supports the installation of additional modules.
 
 ## Platform Preview
 
+DBM Platform is a modular application and CMS environment built on top of DBM Framework.
+
+It combines high performance with a lightweight administration layer, built-in API support, and flexible content management tools.
+
+Designed for modern web applications that require speed, scalability, and full architectural control.
+
+⭐ If you like the project, leave a star on GitHub.
+
 ### Administration Panel
 
 ![DBM Platform Admin](https://dbm.org.pl/images/page/packages/dbm-cmslite-admin.png)
