@@ -10,7 +10,7 @@ return [
     'installer.navbar.extensions' => 'Extensions',
     'installer.navbar.download' => 'Download',
     'installer.header.title' => 'Welcome to DBM Platform!',
-    'installer.header.subtitle' => 'DBM Framework / DBM CMS Platform installation assistant',
+    'installer.header.subtitle' => 'DBM Framework / DBM CMS Platform Installation Assistant',
     'installer.content.title' => 'Installation Assistant',
     'installer.progressbar.installation' => 'Installation progress',
     'installer.progressbar.not_started' => 'Progress bar is not included!',
@@ -99,7 +99,7 @@ return [
     ',
     'installer.step.finish.title' => 'Congratulations!',
     'installer.step.finish.content' => '
-        <p>The installation of <strong>DBM CMS Platform</strong> has been completed.</p>
+        <p>Installation of the <strong>DBM CMS</strong> platform module has been completed.</p>
         <p>The system is now ready to run with the homepage module. If the <strong>packages</strong> directory also contains packages for the <strong>Authentication</strong> and <strong>Administration Panel</strong> modules, the installer can automatically detect and add them to the system.</p>
         <p>The best experience with the system is achieved with the three core modules:</p>
         <ul>

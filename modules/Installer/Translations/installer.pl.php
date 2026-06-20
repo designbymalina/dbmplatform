@@ -10,7 +10,7 @@ return [
     'installer.navbar.extensions' => 'Rozszerzenia',
     'installer.navbar.download' => 'Pobierz',
     'installer.header.title' => 'Witamy w DBM Platform!',
-    'installer.header.subtitle' => 'DBM Framework / Asystent instalacji Platformy DBM CMS',
+    'installer.header.subtitle' => 'DBM Framework / Asystent instalacji platformy DBM CMS',
     'installer.content.title' => 'Asystent instalacji',
     'installer.progressbar.installation' => 'Postęp instalacji',
     'installer.progressbar.not_started' => 'Pasek postępu nie jest dołączony!',
@@ -99,7 +99,7 @@ return [
     ',
     'installer.step.finish.title' => 'Gratulacje!',
     'installer.step.finish.content' => '
-        <p>Instalacja <strong>DBM CMS Platform</strong> została zakończona.</p>
+        <p>Instalacja modułu platformy <strong>DBM CMS</strong> została zakończona.</p>
         <p>System jest już gotowy do działania z modułem strony startowej. Jeśli w katalogu <strong>packages</strong> znajdują się także paczki modułów <strong>Uwierzytelniania</strong> i <strong>Panelu administracyjnego</strong>, instalator może je automatycznie wykryć i dodać do systemu.</p>
         <p>Pełną wygodę pracy z systemem zapewnia zestaw trzech podstawowych modułów:</p>
         <ul>
