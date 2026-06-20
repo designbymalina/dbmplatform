@@ -86,7 +86,7 @@ Worker jest uruchamiany z:
 
 ### Lokalizacja  
 
-```arduino
+```plaintext
 src/Console/Command/
 ```
 
@@ -94,13 +94,13 @@ src/Console/Command/
 
 Plik:
 
-```arduino
+```plaintext
 ExampleCommand.php
 ```
 
 Klasa:
 
-```arduino
+```plaintext
 App\Console\Command\ExampleCommand
 ```
 
@@ -130,7 +130,7 @@ php bin/dbm command example
 
 ### Lokalizacja
 
-```arduino
+```plaintext
 src/Console/Worker/
 ```
 
@@ -138,13 +138,13 @@ src/Console/Worker/
 
 Plik:
 
-```arduino
+```plaintext
 ExampleWorker.php
 ```
 
 Klasa:
 
-```arduino
+```plaintext
 App\Console\Worker\ExampleWorker
 ```
 
@@ -239,3 +239,5 @@ Konsola DbM Framework:
 - nie wymaga zewnętrznych bibliotek,
 - obsługuje moduły z DB i bez DB,
 - jasno oddziela logikę infrastruktury od logiki biznesowej.
+
+---

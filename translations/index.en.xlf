@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.3" version="2.3" srcLang="en" trgLang="en">
+  <file id="index">
+
+    <unit id="index.company_name">
+      <segment>
+        <source>Company Name</source>
+        <target>BizLand</target>
+      </segment>
+    </unit>
+
+    <unit id="index.hero.title">
+      <segment>
+        <source>Welcome to</source>
+        <target>Welcome to</target>
+      </segment>
+    </unit>
+
+    <unit id="index.hero.description">
+      <segment>
+        <source>We are team of talented designers making websites with Bootstrap</source>
+        <target>We are team of talented designers making websites with Bootstrap</target>
+      </segment>
+    </unit>
+
+    <unit id="index.hero.get_started">
+        <segment>
+            <source>Get Started</source>
+            <target>Get Started</target>
+        </segment>
+    </unit>
+
+    <unit id="index.hero.watch_video">
+      <segment>
+        <source>Watch Video</source>
+        <target>Watch Video</target>
+      </segment>
+    </unit>
+
+    <unit id="index.common.loading">
+      <segment>
+        <source>Loading</source>
+        <target>Loading</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.newsletter.title">
+      <segment>
+        <source>Join Our Newsletter</source>
+        <target>Join Our Newsletter</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.newsletter.description">
+      <segment>
+        <source>Subscribe to our newsletter and receive the latest news about our products and services!</source>
+        <target>Subscribe to our newsletter and receive the latest news about our products and services!</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.newsletter.subscribe">
+      <segment>
+        <source>Subscribe</source>
+        <target>Subscribe</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.newsletter.success">
+      <segment>
+        <source>Your subscription request has been sent. Thank you!</source>
+        <target>Your subscription request has been sent. Thank you!</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.information">
+      <segment>
+        <source>Information</source>
+        <target>Information</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.services.title">
+      <segment>
+        <source>Our Services</source>
+        <target>Our Services</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.follow_us.title">
+      <segment>
+        <source>Follow Us</source>
+        <target>Follow Us</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.follow_us.description">
+      <segment>
+        <source>Stay connected and update-to-date with our latest news.</source>
+        <target>Stay connected and update-to-date with our latest news.</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.contact.phone">
+      <segment>
+        <source>Phone:</source>
+        <target>Phone:</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.contact.email">
+      <segment>
+        <source>Email:</source>
+        <target>Email:</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.visits">
+      <segment>
+        <source>Visits</source>
+        <target>Visits</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.services.web_design">
+      <segment>
+        <source>Web Design</source>
+        <target>Web Design</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.services.web_development">
+      <segment>
+        <source>Web Development</source>
+        <target>Web Development</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.services.product_management">
+      <segment>
+        <source>Product Management</source>
+        <target>Product Management</target>
+      </segment>
+    </unit>
+
+    <unit id="index.footer.services.marketing">
+      <segment>
+        <source>Marketing</source>
+        <target>Marketing</target>
+      </segment>
+    </unit>
+
+  </file>
+</xliff>

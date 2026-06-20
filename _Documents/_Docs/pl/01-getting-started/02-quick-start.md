@@ -79,7 +79,7 @@ Aktualnie system nie zawiera natywnego systemu stron wielojęzycznych, jednak um
 Po instalacji w menu aplikacji pojawi się lista wyboru języka.  
 Dostępne języki są konfigurowane w pliku .env w zmiennej:
 
-```env
+```ini
 APP_LANGUAGES="PL|EN|DE"
 ```
 
@@ -185,3 +185,5 @@ Jeśli napotkasz problemy:
 ---
 
 DbM Framework & DbM CMS - szybki start, elastyczność i pełna kontrola nad projektem.
+
+---

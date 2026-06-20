@@ -165,3 +165,5 @@ Generuje przełącznik języków i tłumaczeń
 ## Podsumowanie
 
 TemplateFeature to centrum narzędzi pomocniczych dla warstwy widoków. Zapewnia porządek w szablonach i pozwala zachować logikę poza HTML-em.
+
+---

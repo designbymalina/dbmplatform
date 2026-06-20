@@ -5,12 +5,12 @@ declare(strict_types=1);
 // Installer translation (Polish pl-PL)
 return [
     'installer.lang' => 'pl',
-    'installer.engine' => 'DbM Framework',
+    'installer.engine' => 'DBM Framework',
     'installer.navbar.home' => 'Strona główna (Utwórz Nowy Projekt)',
     'installer.navbar.extensions' => 'Rozszerzenia',
     'installer.navbar.download' => 'Pobierz',
-    'installer.header.title' => 'Witamy w DbM CMS!',
-    'installer.header.subtitle' => 'DbM Framework / Asystent instalacji Platformy DbM CMS',
+    'installer.header.title' => 'Witamy w DBM Platform!',
+    'installer.header.subtitle' => 'DBM Framework / Asystent instalacji Platformy DBM CMS',
     'installer.content.title' => 'Asystent instalacji',
     'installer.progressbar.installation' => 'Postęp instalacji',
     'installer.progressbar.not_started' => 'Pasek postępu nie jest dołączony!',
@@ -19,9 +19,9 @@ return [
     'installer.button.add_modules' => 'Rozszerz system o moduły',
     'installer.step.start.title' => 'Rozpocznij instalację',
     'installer.step.start.content' => '
-        <p><strong>DbM CMS</strong> to szybki i nowoczesny system zarządzania treścią, stworzony z myślą o prostocie użytkowania i instalacji. Gotowe rozwiązanie oparte na frameworku dla tych, którzy chcą szybko uruchomić witrynę lub aplikację bez konieczności kodowania. Obsługuje zarówno proste strony, jak i złożone projekty oparte na bazie danych. Jeśli nie masz czasu na tworzenie własnych modułów, możesz użyć gotowych narzędzi do zarządzania treścią, SEO i strukturą witryny. Dostępne są także gotowe moduły (wtyczki), takie jak CMS Lite, CMS Core, CMS Pro oraz inne, które możesz szybko zainstalować i dostosować do swoich potrzeb. Efektywne rozwiązanie, które przyspiesza rozwój projektu bez utraty na elastyczności frameworka.</p>
+        <p><strong>DBM CMS</strong> to szybki i nowoczesny system zarządzania treścią, stworzony z myślą o prostocie użytkowania i instalacji. Gotowe rozwiązanie oparte na frameworku dla tych, którzy chcą szybko uruchomić witrynę lub aplikację bez konieczności kodowania. Obsługuje zarówno proste strony, jak i złożone projekty oparte na bazie danych. Jeśli nie masz czasu na tworzenie własnych modułów, możesz użyć gotowych narzędzi do zarządzania treścią, SEO i strukturą witryny. Dostępne są także gotowe moduły (wtyczki), takie jak CMS Lite, CMS Core, CMS Pro oraz inne, które możesz szybko zainstalować i dostosować do swoich potrzeb. Efektywne rozwiązanie, które przyspiesza rozwój projektu bez utraty na elastyczności frameworka.</p>
         <p>Proces instalacji składa się z kilku prostych kroków i zajmuje około 5 minut.</p>
-        <p>Zanim zaczniesz korzystać z aplikacji, zapoznaj się z dokumentacją pod adresem: <a href="https://dbm.org.pl/tworzenie/dbmframework" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" target="_blank">DbM Framework</a>.</p>
+        <p>Zanim zaczniesz korzystać z aplikacji, zapoznaj się z dokumentacją pod adresem: <a href="https://dbm.org.pl/tworzenie/dbmframework" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" target="_blank">DBM Framework</a>.</p>
         <ol>
             <li>Przejdź do sekcji &quot;<strong>Instalacja i konfiguracja</strong>&quot; i wykonaj opisane tam czynności.</li>
             <li>Uzupełnij dane konfiguracyjne w pliku <strong>.env</strong> oraz zweryfikuj pliki <strong>.htaccess</strong>.</li>
@@ -68,37 +68,38 @@ return [
     ',
     'installer.step.authentication.title' => 'Utwórz system uwierzytelniania',
     'installer.step.authentication.content' => '
-        <p>W tym kroku zostanie przygotowany system uwierzytelniania.</p>
-        <p>System skonfiguruje podstawową strukturę potrzebną do:</p>
+        <p>W tym kroku zostanie przygotowany system uwierzytelniania użytkowników.</p>
+        <p>System skonfiguruje podstawowe mechanizmy potrzebne do:</p>
         <ul>
             <li>Obsługi kont użytkowników</li>
-            <li>Mechanizmów logowania i wylogowywania</li>
+            <li>Logowania i wylogowywania</li>
             <li>Zarządzania sesjami i bezpieczeństwem</li>
+            <li>Ochrony panelu administracyjnego i zasobów aplikacji</li>
         </ul>
-        <p>System uwierzytelniania umożliwia dostęp do panelu administracyjnego oraz chronionych części aplikacji.</p>
-        <p>W przyszłości funkcje uwierzytelniania można łatwo rozszerzyć o dodatkowe moduły.</p>
+        <p>Podczas instalacji zostanie utworzone domyślne konto administratora:</p>
+        <ul>
+            <li><strong>Administrator</strong></li>
+            <li>Login: <strong>Admin</strong> lub e-mail: admin@mail.com</li>
+            <li>Hasło: <strong>Admin@123</strong></li>
+        </ul>
+        <p><strong>Zalecenie bezpieczeństwa:</strong> po pierwszym logowaniu zmień dane administratora.</p>
+        <p>W przyszłości system uwierzytelniania można rozszerzyć o dodatkowe moduły.</p>
     ',
     'installer.step.admin.title' => 'Utwórz panel administracyjny',
     'installer.step.admin.content' => '
         <p>Ten krok instaluje i konfiguruje panel administracyjny.</p>
         <p>Panel administracyjny umożliwia:</p>
         <ul>
-            <li>Zarządzanie zawartością stron</li>
-            <li>Kontrolowanie użytkowników i uprawnień</li>
-            <li>Obsługę modułów i pluginów</li>
+            <li>Zarządzanie zawartością stron systemu CMS</li>
+            <li>Administrację użytkownikami i uprawnieniami</li>
+            <li>Obsługę pluginów i rozszerzeń</li>
         </ul>
-        <p>Podczas instalacji system automatycznie utworzy konta startowe:</p>
-        <ul>
-            <li><strong>Admin</strong> (login lub e-mail) - hasło: <strong>Admin123</strong></li>
-            <li><strong>Lucy</strong> - hasło: <strong>Test123</strong></li>
-            <li><strong>John</strong> - hasło: <strong>Test123</strong></li>
-        </ul>
-        <p>Po instalacji będziesz mógł zalogować się na konto administratora i zarządzać witryną za pomocą przyjaznego interfejsu użytkownika.</p>
-        <p><strong>Zalecenie bezpieczeństwa:</strong> po pierwszym logowaniu zmień domyślne hasła do kont.</p>
+        <p>Panel administracyjny będzie dostępny po zakończeniu instalacji i zalogowaniu na konto administratora utworzone w poprzednim kroku.</p>
+        <p>Interfejs został zaprojektowany w sposób umożliwiający wygodne zarządzanie aplikacją zarówno na komputerach jak i na urządzeniach mobilnych.</p>
     ',
     'installer.step.finish.title' => 'Gratulacje!',
     'installer.step.finish.content' => '
-        <p>Instalacja <strong>DbM CMS Platform</strong> została zakończona.</p>
+        <p>Instalacja <strong>DBM CMS Platform</strong> została zakończona.</p>
         <p>System jest już gotowy do działania z modułem strony startowej. Jeśli w katalogu <strong>packages</strong> znajdują się także paczki modułów <strong>Uwierzytelniania</strong> i <strong>Panelu administracyjnego</strong>, instalator może je automatycznie wykryć i dodać do systemu.</p>
         <p>Pełną wygodę pracy z systemem zapewnia zestaw trzech podstawowych modułów:</p>
         <ul>
@@ -106,12 +107,12 @@ return [
             <li>Uwierzytelnianie</li>
             <li>Panel administracyjny</li>
         </ul>
-        <p>Razem tworzą kompletną konfigurację DbM CMS, umożliwiając wygodne zarządzanie treścią, użytkownikami oraz instalowanie kolejnych modułów z poziomu panelu.</p>
-        <p><em>DbM CMS został zaprojektowany w sposób modułowy - możesz rozpocząć od podstaw i rozwijać system wraz ze wzrostem swojego projektu.</em></p>
+        <p>Razem tworzą kompletną konfigurację DBM CMS, umożliwiając wygodne zarządzanie treścią, użytkownikami oraz instalowanie kolejnych modułów z poziomu panelu.</p>
+        <p><em>DBM CMS został zaprojektowany w sposób modułowy - możesz rozpocząć od podstaw i rozwijać system wraz ze wzrostem swojego projektu.</em></p>
         <p>Jeśli posiadasz dodatkowe moduły: `authentication.zip` i `admin.zip`, skopiuj ich archiwa do katalogu <strong>packages</strong>, a następnie w kolejnym kroku wybierz opcję <strong>dodaj moduły</strong>. W przeciwnym razie możesz przejść do strony głównej.</p>
         <p>Jeśli właśnie zainstalowałeś dodatkowe moduły, przejdź dalej, aby wrócić do strony głównej.</p>
         <p>Ze względów bezpieczeństwa upewnij się, że instalator nie jest już dostępny.</p>
-        <p>Dziękujemy za korzystanie z DbM CMS.</p>
+        <p>Dziękujemy za korzystanie z DBM CMS.</p>
     ',
     'installer.requirements.msg.core_requirements' => 'Niezbędne wymagania systemowe',
     'installer.requirements.msg.cms_requirements' => 'Niezbędne wymagania dla CMS Lite',
@@ -131,7 +132,7 @@ return [
     'installer.database.msg.table_not_exists' => 'W bazie danych brakuje tabel modułu, które powinny być zainstalowane w module uwierzytelniania.',
     'installer.alert.already_installed' => 'Moduł został już zainstalowany.',
     'installer.alert.invalid_package_structure' => 'Błąd wypakowywania pakietu. Sprawdź plik %s i ponów próbę.<br />%s',
-    'installer.alert.archive_is_missing' => 'Brakuje pakietu `%s`.<br>Pobierz go z GitHuba lub ze strony <a href="https://dbm.org.pl/" target="_blank">DbM Framework</a>.',
+    'installer.alert.archive_is_missing' => 'Brakuje pakietu `%s`.<br>Pobierz go z GitHuba lub ze strony <a href="https://dbm.org.pl/" target="_blank">DBM Framework</a>.',
     'installer.alert.module_verification_failed' => 'Weryfikacja modułu nie powiodła się. Sprawdź moduł, wyczyść pamięć podręczną i spróbuj ponownie.',
     'installer.alert.installation_error' => 'Wystąpił bład podczas instalacji!', // not used
     'installer.alert.installation_process' => 'Pakiet z trakcie instalacji... przygotuj archiwum lub usuń pozostałości, jeśli instalujesz ponownie!',

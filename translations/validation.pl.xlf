@@ -73,5 +73,83 @@
         <target>Nieprawidłowy token bezpieczeństwa. Odśwież stronę i spróbuj ponownie.</target>
       </segment>
     </unit>
+
+    <unit id="validation.slug_required">
+        <segment>
+            <source>Slug is required.</source>
+            <target>Slug jest wymagany.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.slug_invalid_chars">
+        <segment>
+            <source>Allowed characters: lowercase letters, digits, "-", "." and "/".</source>
+            <target>Dozwolone: małe litery, cyfry, "-", "." i "/".</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.slug_double_slash">
+        <segment>
+            <source>Double "/" is not allowed.</source>
+            <target>Nie można używać podwójnych "/".</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.slug_start_end_slash">
+        <segment>
+            <source>The slug cannot start or end with "/".</source>
+            <target>Nie może zaczynać ani kończyć się "/".</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.slug_invalid_segment">
+        <segment>
+            <source>Invalid segment: :value.</source>
+            <target>Niepoprawny segment: :value.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.keywords_required">
+        <segment>
+            <source>Keywords field is required.</source>
+            <target>Pole słowa kluczowe jest wymagane.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.description_required">
+        <segment>
+            <source>Description field is required.</source>
+            <target>Pole opisu jest wymagane.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.title_required">
+        <segment>
+            <source>Title field is required.</source>
+            <target>Pole tytułu jest wymagane.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.title_length">
+        <segment>
+            <source>Title must contain between :min and :max characters.</source>
+            <target>Tytuł musi zawierać od :min do :max znaków.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.content_required">
+        <segment>
+            <source>Content field is required.</source>
+            <target>Pole zawartości jest wymagane.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.content_min">
+        <segment>
+            <source>Content must contain at least :value characters.</source>
+            <target>Zawartość musi zawierać minimum :value znaków.</target>
+        </segment>
+    </unit>
+
   </file>
 </xliff>

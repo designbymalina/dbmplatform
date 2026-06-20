@@ -180,3 +180,5 @@ if (
 - używaj cache (nie skanuj FS w produkcji)  
 
 Rozszerzenia: ModuleLifecycleManager...
+
+---

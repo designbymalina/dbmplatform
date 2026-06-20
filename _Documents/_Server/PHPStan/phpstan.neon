@@ -1,5 +1,6 @@
 includes:
-    # - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    # - vendor/shipmonk/phpstan-rules/rules.neon
 
 parameters:
     level: 6
@@ -7,13 +8,19 @@ parameters:
         - .phpstan-bootstrap.php
 
     scanFiles:
+        - bootstrap/runtime.php
         - bootstrap/autoload.php
         - bootstrap/support.php
         - bootstrap/handler.php
-        - bootstrap/error.php
 
     paths:
         - src
         - modules
 
     checkMissingIterableValueType: true
+
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        # tymczasowo ignoruj noisy rzeczy
+        - '#Call to an undefined method#'

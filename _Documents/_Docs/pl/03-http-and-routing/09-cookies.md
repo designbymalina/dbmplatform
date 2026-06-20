@@ -57,3 +57,5 @@ $cookie->unsetCookie('token');
 - Zawsze używaj secure w produkcji
 - Używaj httpOnly dla danych wrażliwych
 - Nie przechowuj wrażliwych danych w cookies
+
+---

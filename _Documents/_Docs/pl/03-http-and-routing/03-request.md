@@ -247,3 +247,5 @@ if ($request->isJson()) {
 
 - **PSR-7**: pełna zgodność z metodami PSR-7 (`getMethod()`, `getUri()`, `getHeaders()` itp.)
 - **DbM Framework Extension**: rozszerzenia (`getAllPost()`, `getAllQuery()`, `getClientIp()`, `isJson()`, `capture()`)
+
+---

@@ -73,5 +73,83 @@
         <target>Invalid security token. Please refresh the page and try again.</target>
       </segment>
     </unit>
+
+    <unit id="validation.slug_required">
+        <segment>
+            <source>Slug is required.</source>
+            <target>Slug is required.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.slug_invalid_chars">
+        <segment>
+            <source>Allowed characters: lowercase letters, digits, "-", "." and "/".</source>
+            <target>Allowed characters: lowercase letters, digits, "-", "." and "/".</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.slug_double_slash">
+        <segment>
+            <source>Double "/" is not allowed.</source>
+            <target>Double "/" is not allowed.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.slug_start_end_slash">
+        <segment>
+            <source>The slug cannot start or end with "/".</source>
+            <target>The slug cannot start or end with "/".</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.slug_invalid_segment">
+        <segment>
+            <source>Invalid segment: :value.</source>
+            <target>Invalid segment: :value.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.keywords_required">
+        <segment>
+            <source>Keywords field is required.</source>
+            <target>Keywords field is required.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.description_required">
+        <segment>
+            <source>Description field is required.</source>
+            <target>Description field is required.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.title_required">
+        <segment>
+            <source>Title field is required.</source>
+            <target>Title field is required.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.title_length">
+        <segment>
+            <source>Title must contain between :min and :max characters.</source>
+            <target>Title must contain between :min and :max characters.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.content_required">
+        <segment>
+            <source>Content field is required.</source>
+            <target>Content field is required.</target>
+        </segment>
+    </unit>
+
+    <unit id="validation.content_min">
+        <segment>
+            <source>Content must contain at least :value characters.</source>
+            <target>Content must contain at least :value characters.</target>
+        </segment>
+    </unit>
+
   </file>
 </xliff>

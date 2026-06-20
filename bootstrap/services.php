@@ -30,6 +30,7 @@ declare(strict_types=1);
 
 use Dbm\Core\DependencyContainer;
 use Dbm\Core\Module\CoreModuleServiceProvider;
+use Dbm\Events\EventDispatcher;
 use Dbm\Exceptions\ExceptionHandler;
 use Dbm\Http\Contracts\HttpClientInterface;
 use Dbm\Http\CurlHttpClient;
@@ -68,6 +69,11 @@ return function (DependencyContainer $container): DependencyContainer {
             $c->get(UrlGeneratorInterface::class)
         );
     });
+
+    $container->singleton(
+        EventDispatcher::class,
+        fn() => new EventDispatcher()
+    );
 
     // --- Modules ---
 

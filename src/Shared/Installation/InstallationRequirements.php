@@ -47,13 +47,12 @@ final class InstallationRequirements
         $this->checkPhpVersion(self::PHP_VERSION);
         $this->checkConfig($this->envPath);
         $this->checkDirectories($this->getRequiredDirs());
+        $this->checkLanguages();
 
         if ($this->hasIssues()) {
             $this->renderAndExit();
         }
     }
-
-    // ===== Private =====
 
     /** @return array<int, string> */
     public function getRequiredDirs(): array
@@ -63,6 +62,15 @@ final class InstallationRequirements
             Paths::joinPaths(Paths::basePath(), 'storage'),
             Paths::joinPaths(Paths::basePath(), 'storage', 'cache'),
         ];
+    }
+
+    // ===== Private =====
+
+    private function checkPhpVersion(string $required): void
+    {
+        if (version_compare(PHP_VERSION, $required, '<')) {
+            $this->issues[] = "PHP {$required}+ required, current: " . PHP_VERSION;
+        }
     }
 
     private function checkConfig(string $pathConfig): void
@@ -91,10 +99,12 @@ final class InstallationRequirements
         }
     }
 
-    private function checkPhpVersion(string $required): void
+    private function checkLanguages(): void
     {
-        if (version_compare(PHP_VERSION, $required, '<')) {
-            $this->issues[] = "PHP {$required}+ required, current: " . PHP_VERSION;
+        $languages = trim((string) getenv('APP_LANGUAGES'));
+
+        if ($languages === '') {
+            $this->issues[] = 'APP_LANGUAGES is not configured. Example: APP_LANGUAGES=EN|PL';
         }
     }
 

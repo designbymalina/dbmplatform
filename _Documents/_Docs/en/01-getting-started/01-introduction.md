@@ -80,3 +80,5 @@ This solution is ideal for projects where a standard CMS (like WordPress) is too
 The **DBM Framework** bridges the gap between simple scripts and powerful yet complex enterprise-class frameworks. By choosing this solution, you gain a foundation that doesn't limit your creativity, imposes no unnecessary dependencies, and allows your application to grow in an orderly manner.
 
 This tool was created by developers for developers—where predictability, speed, and code elegance are key.
+
+---

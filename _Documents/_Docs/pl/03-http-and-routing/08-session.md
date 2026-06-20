@@ -65,3 +65,5 @@ $data[] = 'product_id';
 - Przechowuj w sesji tylko małe dane  
 - Unikaj dużych obiektów  
 - Zabezpieczaj cookies sesyjne  
+
+---

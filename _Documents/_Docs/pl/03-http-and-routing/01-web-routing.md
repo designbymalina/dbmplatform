@@ -97,3 +97,5 @@ Dla powyższej grupy tras zwraca: `/admin/users/5`
 DbM Framework zapewnia prosty, szybki i elastyczny routing webowy.  
 Nie potrzebujesz dodatkowych konfiguracji - wszystkie trasy definiujesz w jednym miejscu (`routes.php`).  
 Dzięki temu aplikacja pozostaje lekka, a logika przejrzysta.
+
+---

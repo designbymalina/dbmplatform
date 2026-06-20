@@ -94,10 +94,10 @@
       </segment>
     </unit>
 
-    <unit id="or">
+    <unit id="or_continue">
       <segment>
-        <source>or</source>
-        <target>lub</target>
+        <source>or continue with</source>
+        <target>lub kontynuuj za pomocą</target>
       </segment>
     </unit>
 
@@ -211,6 +211,13 @@
       <segment>
         <source>Log out</source>
         <target>Wyloguj się</target>
+      </segment>
+    </unit>
+
+    <unit id="new_password">
+      <segment>
+        <source>New password</source>
+        <target>Nowe hasło</target>
       </segment>
     </unit>
 
@@ -372,10 +379,10 @@
       </segment>
     </unit>
 
-    <unit id="navbar.nav.your_profile">
+    <unit id="navbar.nav.your_account">
       <segment>
-        <source>Your profile</source>
-        <target>Twój profil</target>
+        <source>Your account</source>
+        <target>Twoje konto</target>
       </segment>
     </unit>
 
@@ -383,6 +390,27 @@
       <segment>
         <source>Admin dashboard</source>
         <target>Panel administracyjny</target>
+      </segment>
+    </unit>
+
+    <unit id="google">
+      <segment>
+        <source>Google</source>
+        <target>Google</target>
+      </segment>
+    </unit>
+
+    <unit id="facebook">
+      <segment>
+        <source>Facebook</source>
+        <target>Facebook</target>
+      </segment>
+    </unit>
+
+    <unit id="github">
+      <segment>
+        <source>GitHub</source>
+        <target>GitHub</target>
       </segment>
     </unit>
 

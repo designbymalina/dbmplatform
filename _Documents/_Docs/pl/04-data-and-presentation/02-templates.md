@@ -174,3 +174,5 @@ Dzięki temu możesz pisać widoki w .twig, korzystać z dziedziczenia layoutów
 ## Podsumowanie
 
 System szablonów DbM Framework pozwala budować przejrzyste widoki z dziedziczeniem, składnią znaną z większych frameworków i prostym dostępem do zmiennych oraz helperów. Nie wymaga żadnych zewnętrznych bibliotek.
+
+---

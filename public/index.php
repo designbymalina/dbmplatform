@@ -32,11 +32,11 @@ if ($baseDirectory === false) {
 $baseDirectory = rtrim(str_replace('\\', '/', $baseDirectory), '/');
 
 /**
- * Initialization of the global error handling system (before application bootstrap).
+ * Runtime configuration
  */
-require_once $baseDirectory . '/bootstrap/error.php';
+require_once $baseDirectory . '/bootstrap/runtime.php';
 
-initErrorHandling($baseDirectory);
+initRuntime($baseDirectory);
 
 try {
     /**

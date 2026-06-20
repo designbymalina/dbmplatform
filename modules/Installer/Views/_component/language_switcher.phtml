@@ -1,0 +1,21 @@
+                        <!-- @installer: Language Switcher -->
+                        {% $language = $this->getLanguagesData($this->asset()); %}
+                        {% if ($language !== null): %}
+                        <ul class="list-unstyled position-absolute top-0 end-0 mt-3 me-3 dbm-list-language">
+                            <li class="dropdown">
+                                <a href="#" class="btn btn-light d-inline-flex align-items-center justify-content-center gap-1 dropdown-toggle dbm-btn-flag" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{ $language['current']['image'] }}" alt="{{ $language['current']['code'] }}" width="20" height="20" class="object-fit-cover rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    {% foreach($language['languages'] as $lang): %}
+                                    <li class="dropdown-item {{ $lang['active'] }}">
+                                        <a href="{{ $lang['url'] }}" class="d-flex align-items-center justify-content-center gap-2 w-100 link-dark text-decoration-none color-inherit">
+                                            <img src="{{ $lang['image'] }}" alt="{{ $lang['code'] }}" width="20">
+                                            <span>{{ $lang['code'] }}</span>
+                                        </a>
+                                    </li>
+                                    {% endforeach; %}
+                                </ul>
+                            </li>
+                        </ul>
+                        {% endif; %}

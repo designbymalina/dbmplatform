@@ -91,3 +91,5 @@ Obsługuje popularne kody (200, 201, 204, 301, 302, 400, 401, 403, 404, 405, 409
 - Klasa `Response` rozszerza bazową klasę `Message` i implementuje `ExtendedResponseInterface`.
 - Obsługuje łączenie łańcuchowe (`withStatus()` zwraca nową instancję).
 - Integruje się z `StreamInterface` w PSR-7 w celu obsługi treści.
+
+---

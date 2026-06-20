@@ -18,23 +18,23 @@ use Dbm\Middleware\ExceptionMiddleware;
 use Dbm\Middleware\RequestToolbarEndMiddleware;
 use Dbm\Middleware\RequestToolbarStartMiddleware;
 use Dbm\Middleware\RouterMatchMiddleware;
-use Dbm\Middleware\StartSessionMiddleware;
+// use Dbm\Middleware\StartSessionMiddleware;
 use Dbm\Routing\MiddlewareStack;
 use Dbm\Security\Middleware\AuthMiddleware;
 
 return function (MiddlewareStack $middleware, $container): void {
-    // --- SESSION (pierwsze)
-    $middleware->add($container->get(StartSessionMiddleware::class));
+    // --- SESSION (optional: if the session has not been previously started in Application::run()).
+    // $middleware->add($container->get(StartSessionMiddleware::class));
 
-    // --- START (globalne)
+    // --- START (globals)
     $middleware->add(new RequestToolbarStartMiddleware());
     $middleware->add($container->get(ExceptionMiddleware::class));
 
-    // --- CORE (aplikacja)
+    // --- CORE (aplication)
     $middleware->add(new CorsMiddleware());
     $middleware->add($container->get(RouterMatchMiddleware::class));
 
-    // Auth po routerze (używa route)
+    // Auth (route)
     $middleware->add($container->get(AuthMiddleware::class));
 
     // --- END (debug / dev)

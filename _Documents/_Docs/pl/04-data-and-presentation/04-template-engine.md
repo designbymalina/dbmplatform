@@ -182,3 +182,5 @@ final class TemplateEngineTest extends TestCase
 - **Nie używaj `@`**: nie tłumisz ostrzeżeń — radź sobie z nimi jawnie (throw/exceptions) lub obsłuż w logiczny sposób.
 - **Zadbaj o uprawnienia**: katalog cache musi być zapisywalny przez proces PHP.
 - **Filtry**: rejestruj nowe filtry w jednym miejscu (konfiguracja lub container).
+
+---

@@ -3,7 +3,7 @@
   "description": "DBM Framework",
   "homepage": "https://dbm.org.pl",
   "type": "library",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "license": "MIT",
   "autoload": {
     "psr-4": {

@@ -13,7 +13,7 @@
   # Configure `RewriteBase` if automatic configuration fails.
   # For domain installation (e.g., https://yourdomain.com) set: RewriteBase /
   # For directory/localhost installations (e.g., "dbmframework" folder): RewriteBase /dbmframework/public/
-  RewriteBase /
+  RewriteBase /_ecosystem/dbmplatform/public/
 
   # Optional: Uncomment if needed.
 

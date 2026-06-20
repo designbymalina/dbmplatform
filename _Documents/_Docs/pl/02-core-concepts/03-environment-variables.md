@@ -80,7 +80,7 @@ Jeśli chcesz chronić formularze za pomocą reCAPTCHA, dodaj klucze:
 
 ## Przykładowy plik `.env`
 
-```dotenv
+```ini
 APP_URL="http://localhost/"
 APP_NAME="Design by Malina"
 APP_EMAIL="kontakt@domain.com"
@@ -119,3 +119,5 @@ Upewnij się, że:
 - nie udostępniasz go publicznie
 - zmieniasz wartości domyślne (szczególnie APP_SESSION_KEY i APP_PANEL)
 - po uruchomieniu aplikacji ustawiasz CACHE_ENABLED=true dla lepszej wydajności.
+
+---

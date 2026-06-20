@@ -12,12 +12,47 @@
 
 declare(strict_types=1);
 
+function initRuntime(string $baseDirectory): void
+{
+    initSessionRuntime();
+    initErrorHandling($baseDirectory);
+}
+
+// ===== Session security configuration =====
+
+function initSessionRuntime(): void
+{
+    $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || ($_SERVER['SERVER_PORT'] ?? null) == 443;
+
+    $sessionName = $isHttps ? '__Host-dbmSession' : 'dbmSession';
+
+    session_name($sessionName);
+
+    ini_set('session.use_strict_mode', '1');
+    ini_set('session.use_only_cookies', '1');
+
+    ini_set('session.cookie_httponly', '1');
+    ini_set('session.cookie_samesite', 'Lax');
+
+    ini_set('session.gc_maxlifetime', '7200');
+    ini_set('session.cookie_lifetime', '0');
+
+    ini_set('session.sid_length', '64');
+    ini_set('session.sid_bits_per_character', '6');
+
+    if ($isHttps) {
+        ini_set('session.cookie_secure', '1');
+    }
+}
+
+// ===== Error handling =====
+
 function initErrorHandling(string $baseDirectory): void
 {
     error_reporting(E_ALL);
 
-    $env = $_ENV['APP_ENV'] ?? $_SERVER['APP_ENV'] ?? 'production';
-    $isProd = $env === 'production';
+    $isProd = !in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1'], true); // na serwerze produkcyjnym true
 
     ini_set('display_errors', $isProd ? '0' : '1');
     ini_set('log_errors', '1');

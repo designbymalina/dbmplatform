@@ -13,7 +13,7 @@ DBM Framework uses PHP-based routing.
 
 Routing configuration is loaded from:
 
-```bash id="1v2r8h"
+```bash
 application/web.php
 application/api.php
 ```
@@ -24,7 +24,7 @@ application/api.php
 
 Controllers should be placed in:
 
-```bash id="z4mxk2"
+```bash
 src/Controller
 ```
 
@@ -32,7 +32,7 @@ src/Controller
 
 ## Example Controller
 
-```php id="q9psj2"
+```php
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -83,7 +83,7 @@ class IndexController extends BaseController
 
 Services should be placed in:
 
-```bash id="qv1rpl"
+```bash
 src/Service
 ```
 
@@ -91,7 +91,7 @@ src/Service
 
 ## Example Service
 
-```php id="i1j4yl"
+```php
 declare(strict_types=1);
 
 namespace App\Service;
@@ -131,7 +131,7 @@ class IndexService
 
 Routes are defined manually in:
 
-```bash id="5s8v5l"
+```bash
 application/web.php
 application/api.php
 ```
@@ -146,7 +146,7 @@ DBM uses automatic dependency injection.
 
 ### Constructor Injection (recommended)
 
-```php id="m21gqp"
+```php
 public function __construct(
     private IndexService $service,
     private FlashBag $flash
@@ -159,7 +159,7 @@ Dependencies are resolved automatically from the DI container.
 
 ### Method Injection (optional)
 
-```php id="x8hz0g"
+```php
 public function example(Request $request): ResponseInterface
 ```
 
@@ -169,7 +169,7 @@ public function example(Request $request): ResponseInterface
 
 Flash messages are handled via `FlashBag`:
 
-```php id="e0rqf4"
+```php
 $this->flash->set('Message text');
 ```
 
@@ -183,13 +183,13 @@ Translations are handled via the `Translation` service.
 
 ### Example
 
-```php id="l6nqzq"
+```php
 $this->translation->trans('key');
 ```
 
 ### With parameters
 
-```php id="grxk80"
+```php
 $this->translation->trans('hello', ['name' => 'John']);
 ```
 
@@ -199,13 +199,13 @@ $this->translation->trans('hello', ['name' => 'John']);
 
 Stored in:
 
-```bash id="8v9b2t"
+```bash
 translations/
 ```
 
 Example:
 
-```php id="8u8a6y"
+```php
 return [
     'index.start_meta_title' => 'Start page',
 ];
@@ -217,13 +217,13 @@ return [
 
 Templates are located in:
 
-```bash id="6j2dce"
+```bash
 templates/
 ```
 
 Render using:
 
-```php id="kn5v5h"
+```php
 $this->render('index/start.phtml', [...]);
 ```
 
@@ -233,7 +233,7 @@ $this->render('index/start.phtml', [...]);
 
 You can inject the logger into services or controllers:
 
-```php id="bmbi3k"
+```php
 use Dbm\Infrastructure\Log\Logger;
 
 public function __construct(
@@ -245,7 +245,7 @@ public function __construct(
 
 ## Example Usage in Service
 
-```php id="h2y4p6"
+```php
 $this->logger->info('Meta generated');
 ```
 
@@ -267,13 +267,13 @@ $this->logger->info('Meta generated');
 
 1. Point your web server to:
 
-```bash id="2ld9ut"
+```bash
 public/
 ```
 
 2. Open:
 
-```id="m4o4rz"
+```bash
 http://localhost/
 ```
 

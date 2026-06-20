@@ -288,3 +288,5 @@ Dzięki temu kod jest:
 ---
 
 To jest podstawowy wzorzec budowania funkcjonalności w DBM Framework.
+
+---

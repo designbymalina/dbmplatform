@@ -113,3 +113,5 @@ class ApiAuthMiddleware
 - Jeśli logika jest bardziej złożona (np. JWT, ACL), rozważ użycie osobnej klasy serwisu.  
 - Unikaj modyfikowania danych `$_POST`, `$_GET` itp. bezpośrednio — pracuj na obiekcie `Request`.  
 - Zwracaj `ResponseInterface`, aby zatrzymać dalsze przetwarzanie.
+
+---

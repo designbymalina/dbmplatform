@@ -259,3 +259,5 @@ Moduł Database oferuje:
 - możliwość korzystania z potężnego QueryBuildera Doctrine
 - bezpieczną abstrakcję poprzez MainDatabaseInterface
 - wspólne metody (queryExecute, fetch, fetchObject, fetchAll)
+
+---

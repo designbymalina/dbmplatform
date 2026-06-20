@@ -123,3 +123,5 @@ API w DbM Framework to:
 - prosty system autoryzacji i middleware.
 
 Lekkość i czytelność - idealne rozwiązanie dla MVP i paneli administracyjnych.
+
+---

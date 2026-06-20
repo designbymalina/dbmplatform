@@ -77,3 +77,5 @@ To rozwiązanie idealnie sprawdza się w projektach, gdzie standardowy CMS (jak 
 
 **DBM Framework** to most między prostymi skryptami a potężnymi, lecz skomplikowanymi frameworkami klasy enterprise. Wybierając to rozwiązanie, zyskujesz fundament, który nie ogranicza Twojej kreatywności, nie narzuca zbędnych zależności i pozwala aplikacji rosnąć w sposób uporządkowany.
 To narzędzie stworzone przez programistów dla programistów - tam, gdzie liczy się **przewidywalność, szybkość i elegancja kodu**.
+
+---

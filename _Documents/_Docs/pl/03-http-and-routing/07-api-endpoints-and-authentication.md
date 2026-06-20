@@ -250,3 +250,5 @@ $data = json_decode($response->getBody(), true);
 - Przechowuj API_JWT_SECRET w bezpiecznym miejscu
 - Używaj HTTPS w środowisku produkcyjnym
 - Zalecany krótki czas życia tokena (np. 1 godzina)
+
+---
