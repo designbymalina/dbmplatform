@@ -94,7 +94,7 @@ return [
             <li>Manage users and permissions</li>
             <li>Handle plugins and extensions</li>
         </ul>
-        <p>The administration panel will be available after the installation process is completed and you log in using the administrator account created in the previous step.</p>
+        <p>The admin panel will be available after the installation is complete and you log in to the administrator account created in the previous step of the authentication module. Default login credentials: <strong>Admin</strong>, password: <strong>Admin@123</strong>.</p>
         <p>The interface has been designed to provide convenient application management on both desktop and mobile devices.</p>
     ',
     'installer.step.finish.title' => 'Congratulations!',

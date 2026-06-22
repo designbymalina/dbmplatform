@@ -94,7 +94,7 @@ return [
             <li>Administrację użytkownikami i uprawnieniami</li>
             <li>Obsługę pluginów i rozszerzeń</li>
         </ul>
-        <p>Panel administracyjny będzie dostępny po zakończeniu instalacji i zalogowaniu na konto administratora utworzone w poprzednim kroku.</p>
+        <p>Panel administracyjny będzie dostępny po zakończeniu instalacji i zalogowaniu na konto administratora utworzone w poprzednim kroku modułu uwierzytelniania. Domyślne dane logowania: <strong>Admin</strong>, hasło: <strong>Admin@123</strong>.</p>
         <p>Interfejs został zaprojektowany w sposób umożliwiający wygodne zarządzanie aplikacją zarówno na komputerach jak i na urządzeniach mobilnych.</p>
     ',
     'installer.step.finish.title' => 'Gratulacje!',

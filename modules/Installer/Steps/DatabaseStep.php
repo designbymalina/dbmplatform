@@ -104,7 +104,7 @@ final class DatabaseStep extends AbstractInstallerStep
             return $this->fail('installer.database.msg.user_missing');
         }
 
-        if (!$this->repository->connect()) {
+        if (!$this->repository->isConnected()) {
             return $this->fail('installer.database.msg.connection_failed');
         }
 
