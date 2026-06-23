@@ -131,7 +131,7 @@ return [
     'installer.database.msg.table_exists' => 'Tables for module already exist in the database. The database must be cleared before installation.', // not used
     'installer.database.msg.table_not_exists' => 'The database is missing module tables that should be installed in the authentication module.',
     'installer.alert.already_installed' => 'The module has already been installed.',
-    'installer.alert.invalid_package_structure' => 'Error unpacking package. Please check file %s and try again..<br />%s',
+    'installer.alert.invalid_package_structure' => 'Package extraction error. Check the `%s` file and/or delete the `extracted` directory, then try again.<br />%s',
     'installer.alert.archive_is_missing' => 'The package `%s` is missing.<br>Download it from GitHub or from <a href="https://dbm.org.pl/" target="_blank">DBM Framework</a>',
     'installer.alert.module_verification_failed' => 'The module verification failed. Please check the module, clear the cache and try again.',
     'installer.alert.installation_error' => 'An error occurred during installation!', // not used

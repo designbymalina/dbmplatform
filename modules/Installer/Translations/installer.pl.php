@@ -131,7 +131,7 @@ return [
     'installer.database.msg.table_exists' => 'W bazie danych istnieją już tabele modułu. Przed instalacją baza musi zostać wyczyszczona.', // not used
     'installer.database.msg.table_not_exists' => 'W bazie danych brakuje tabel modułu, które powinny być zainstalowane w module uwierzytelniania.',
     'installer.alert.already_installed' => 'Moduł został już zainstalowany.',
-    'installer.alert.invalid_package_structure' => 'Błąd wypakowywania pakietu. Sprawdź plik %s i ponów próbę.<br />%s',
+    'installer.alert.invalid_package_structure' => 'Błąd rozpakowywania pakietu. Sprawdź plik `%s` i/lub usuń katalog `extracted`, następnie spróbuj ponownie.<br />%s',
     'installer.alert.archive_is_missing' => 'Brakuje pakietu `%s`.<br>Pobierz go z GitHuba lub ze strony <a href="https://dbm.org.pl/" target="_blank">DBM Framework</a>.',
     'installer.alert.module_verification_failed' => 'Weryfikacja modułu nie powiodła się. Sprawdź moduł, wyczyść pamięć podręczną i spróbuj ponownie.',
     'installer.alert.installation_error' => 'Wystąpił bład podczas instalacji!', // not used
