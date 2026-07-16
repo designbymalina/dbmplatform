@@ -28,12 +28,11 @@
 
 declare(strict_types=1);
 
+use App\Infrastructure\Http\HttpClientProvider;
 use Dbm\Core\DependencyContainer;
 use Dbm\Core\Module\CoreModuleServiceProvider;
 use Dbm\Events\EventDispatcher;
 use Dbm\Exceptions\ExceptionHandler;
-use Dbm\Http\Contracts\HttpClientInterface;
-use Dbm\Http\CurlHttpClient;
 use Dbm\Infrastructure\Cookie\CookieManager;
 use Dbm\Infrastructure\Filesystem\Filesystem;
 use Dbm\Infrastructure\Session\SessionManager;
@@ -120,10 +119,7 @@ return function (DependencyContainer $container): DependencyContainer {
 
     // --- API HTTP Client ---
 
-    $container->singleton(
-        HttpClientInterface::class,
-        fn() => new CurlHttpClient()
-    );
+    HttpClientProvider::register($container);
 
     // ===== VIEW =====
 
