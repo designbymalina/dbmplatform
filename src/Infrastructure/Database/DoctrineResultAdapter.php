@@ -45,4 +45,12 @@ class DoctrineResultAdapter implements ResultInterface
     {
         return $this->result->fetchAllAssociative() ?: [];
     }
+
+    /**
+     * @return int
+     */
+    public function affectedRows(): int
+    {
+        return $this->result->rowCount();
+    }
 }

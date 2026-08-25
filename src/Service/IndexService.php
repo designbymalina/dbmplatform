@@ -14,12 +14,15 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use Dbm\Localization\CurrentLanguage;
+use Dbm\Localization\LanguageHelper;
 use Dbm\Localization\Translation;
 
 class IndexService
 {
     public function __construct(
-        private readonly Translation $translation
+        private readonly Translation $translation,
+        private readonly CurrentLanguage $currentLanguage
     ) {}
 
     /**
@@ -45,5 +48,16 @@ class IndexService
             'meta.keywords' => $this->translation->trans('index.start_meta_keywords'),
             'meta.robots' => "noindex,nofollow",
         ];
+    }
+
+    public function getTemplateLanguage(): string
+    {
+        $currentLanguage = $this->currentLanguage->get();
+
+        if ($currentLanguage !== null) {
+            return strtolower($currentLanguage);
+        }
+
+        return strtolower(LanguageHelper::getDefaultLanguage());
     }
 }

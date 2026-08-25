@@ -34,6 +34,10 @@ class IndexController extends BaseController
      */
     public function index(): ResponseInterface
     {
+        // Optional: Enable language-specific templates for a multilingual static homepage.
+        // $lang = $this->service->getTemplateLanguage();
+        // $this->render("index/{$lang}/index.phtml");
+
         // Create a New Project (templates/index/index.phtml)!
         $this->flash->set('Your application is now ready and you can start working on a new project.');
 

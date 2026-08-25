@@ -25,6 +25,7 @@ use Dbm\Database\Contracts\SelectQueryBuilderInterface;
 class DoctrineQueryBuilderAdapter implements SelectQueryBuilderInterface
 {
     private object $qb;
+    private int $counter = 0;
 
     public function __construct(object $qb)
     {
@@ -71,6 +72,20 @@ class DoctrineQueryBuilderAdapter implements SelectQueryBuilderInterface
     {
         $this->qb->andWhere($expr);
         return $this;
+    }
+
+    public function whereIn(string $field, array $values): self
+    {
+        return $this->where(
+            $this->buildInExpression($field, $values)
+        );
+    }
+
+    public function andWhereIn(string $field, array $values): self
+    {
+        return $this->andWhere(
+            $this->buildInExpression($field, $values)
+        );
     }
 
     public function orderBy(string $sort, ?string $order = null): self
@@ -124,5 +139,29 @@ class DoctrineQueryBuilderAdapter implements SelectQueryBuilderInterface
         return new DoctrineExpressionBuilderAdapter(
             $this->qb->expr()
         );
+    }
+
+    // ===== Private =====
+
+    /**
+     * @param list<mixed> $values
+     */
+    private function buildInExpression(string $field, array $values): string
+    {
+        if ($values === []) {
+            return '1 = 0';
+        }
+
+        $group = ++$this->counter;
+        $placeholders = [];
+
+        foreach ($values as $i => $value) {
+            $name = "in_{$group}_{$i}";
+
+            $placeholders[] = ':' . $name;
+            $this->qb->setParameter($name, $value);
+        }
+
+        return sprintf('%s IN (%s)', $field, implode(', ', $placeholders));
     }
 }

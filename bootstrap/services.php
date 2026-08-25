@@ -71,7 +71,7 @@ return function (DependencyContainer $container): DependencyContainer {
 
     $container->singleton(
         EventDispatcher::class,
-        fn() => new EventDispatcher()
+        fn() => new EventDispatcher($container)
     );
 
     // --- Modules ---

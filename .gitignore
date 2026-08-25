@@ -141,3 +141,8 @@
 /public/modules
 /storage
 .vscode
+
+## Tymczasowo (usuń)
+/public/assets/css/dybem.css
+/public/images/products
+/public/vendor/fontawesome
