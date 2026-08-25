@@ -6,11 +6,11 @@ declare(strict_types=1);
 return [
     'installer.lang' => 'pl',
     'installer.engine' => 'DBM Framework',
-    'installer.navbar.home' => 'Strona główna (Utwórz Nowy Projekt)',
+    'installer.navbar.home' => 'Strona główna',
     'installer.navbar.extensions' => 'Rozszerzenia',
     'installer.navbar.download' => 'Pobierz',
     'installer.header.title' => 'Witamy w DBM Platform!',
-    'installer.header.subtitle' => 'DBM Framework / Asystent instalacji platformy DBM CMS',
+    'installer.header.subtitle' => 'Asystent instalacji modułów platformy',
     'installer.content.title' => 'Asystent instalacji',
     'installer.progressbar.installation' => 'Postęp instalacji',
     'installer.progressbar.not_started' => 'Pasek postępu nie jest dołączony!',

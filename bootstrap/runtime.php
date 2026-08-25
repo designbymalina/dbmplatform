@@ -38,9 +38,6 @@ function initSessionRuntime(): void
     ini_set('session.gc_maxlifetime', '7200');
     ini_set('session.cookie_lifetime', '0');
 
-    ini_set('session.sid_length', '64');
-    ini_set('session.sid_bits_per_character', '6');
-
     if ($isHttps) {
         ini_set('session.cookie_secure', '1');
     }

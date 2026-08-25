@@ -6,11 +6,11 @@ declare(strict_types=1);
 return [
     'installer.lang' => 'en',
     'installer.engine' => 'DBM Framework',
-    'installer.navbar.home' => 'Home (Create New Project)',
+    'installer.navbar.home' => 'Home',
     'installer.navbar.extensions' => 'Extensions',
     'installer.navbar.download' => 'Download',
     'installer.header.title' => 'Welcome to DBM Platform!',
-    'installer.header.subtitle' => 'DBM Framework / DBM CMS Platform Installation Assistant',
+    'installer.header.subtitle' => 'Platform Modules Installation Assistant',
     'installer.content.title' => 'Installation Assistant',
     'installer.progressbar.installation' => 'Installation progress',
     'installer.progressbar.not_started' => 'Progress bar is not included!',
@@ -114,7 +114,7 @@ return [
         <p>For security reasons, make sure the installer is no longer available.</p>
         <p>Thank you for using DBM CMS.</p>
     ',
-    'installer.requirements.msg.core requirements' => 'Essential system requirements',
+    'installer.requirements.msg.core_requirements' => 'Essential system requirements',
     'installer.requirements.msg.cms_requirements' => 'Essential requirements for CMS Lite',
     'installer.requirements.msg.admin_requirements' => 'Authentication and administration panel installation requirements',
     'installer.requirements.msg.php_ok' => 'PHP version ≥ %s meets the requirements',

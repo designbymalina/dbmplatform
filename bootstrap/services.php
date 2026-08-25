@@ -28,7 +28,6 @@
 
 declare(strict_types=1);
 
-use App\Infrastructure\Http\HttpClientProvider;
 use Dbm\Core\DependencyContainer;
 use Dbm\Core\Module\CoreModuleServiceProvider;
 use Dbm\Events\EventDispatcher;
@@ -116,10 +115,6 @@ return function (DependencyContainer $container): DependencyContainer {
             $c->get(SessionManager::class)
         )
     );
-
-    // --- API HTTP Client ---
-
-    HttpClientProvider::register($container);
 
     // ===== VIEW =====
 

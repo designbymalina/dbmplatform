@@ -1,7 +1,7 @@
 {
   "name": "designbymalina/dbmframework",
   "description": "DBM Framework",
-  "homepage": "https://dbm.org.pl",
+  "homepage": "https://dybem.com",
   "type": "library",
   "version": "6.2.0",
   "license": "MIT",
@@ -11,7 +11,7 @@
     }
   },
   "require": {
-    "php": "^8.1",
+    "php": "^8.5",
     "psr/http-message": "^1.0 || ^2.0",
     "psr/http-server-middleware": "^1.0",
     "psr/http-server-handler": "^1.0",

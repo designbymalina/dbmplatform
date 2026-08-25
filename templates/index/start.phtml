@@ -2,61 +2,62 @@
 
 {% block content %}
     <!-- Main Content -->
-    <main class="my-4 my-lg-5">
+    <main class="my-3 my-lg-4">
         <div class="container">
             {% include '_component/messages_dismissing.phtml' %}
-            <!-- Content -->
             <div class="bg-white text-dark p-lg-2 rounded-lg shadow-lg">
                 <div class="p-4 rounded-top position-relative dbm-box-welcome-header">
                     <div>
-                        <h1 class="display-5 fw-bold"><i class="bi bi-stars me-2"></i>Welcome to DBM Framework!</h1>
-                        <p class="fs-5 h-desc mb-0">Your lightweight and flexible framework for building modern web applications.</p>
+                        <h1 class="display-5 fw-bold"><i class="bi bi-stars me-2"></i>Welcome to DBM Framework</h1>
+                        <p class="fs-5 h-desc mb-0">The lightweight PHP foundation of the Dybem ecosystem.</p>
                     </div>
                     <div class="position-absolute top-0 end-0 m-3">
                         <!-- Language -->
                     </div>
                 </div>
                 <div class="p-4 dbm-box-welcome-features">
-                    <div class="row g-2">
+                    <div class="row g-4">
                         <div class="col-lg-4">
-                            <h2 class="h4 fw-bold"><i class="bi bi-ticket-perforated me-2 text-danger"></i>High Performance</h2>
-                            <p class="mb-0">Experience unparalleled speed and responsiveness in your applications. Our optimized architecture ensures minimal latency and efficient resource management, allowing your web applications to handle high traffic loads with ease and stability.</p>
+                            <h2 class="h4 fw-bold"><i class="bi bi-lightning-charge me-2 text-danger"></i>Lightweight &amp; Fast</h2>
+                            <p class="mb-0">A lightweight architecture designed for fast request handling, low overhead and efficient resource usage. Build applications that remain responsive and efficient without unnecessary framework complexity or infrastructure overhead.</p>
                         </div>
                         <div class="col-lg-4">
-                            <h2 class="h4 fw-bold"><i class="bi bi-gear me-2 text-dark"></i>Easy Configuration</h2>
-                            <p class="mb-0">Get started quickly with our intuitive configuration options. Regardless of your experience, the framework provides user-friendly configuration and setup processes to match your project needs with minimal effort, reducing setup time and complexity.</p>
+                            <h2 class="h4 fw-bold"><i class="bi bi-diagram-3 me-2 text-dark"></i>Flexible Architecture</h2>
+                            <p class="mb-0">Build applications with dependency injection, routing, views, sessions, security and an extensible modular architecture. Keep your application structure clear while adding the services and components your project actually needs.</p>
                         </div>
                         <div class="col-lg-4">
-                            <h2 class="h4 fw-bold"><i class="bi bi-book me-2 text-primary"></i>Comprehensive Documentation</h2>
-                            <p class="mb-0">Our documentation includes best practices and step-by-step guides so you can easily create and deploy applications, ensuring smooth development and effective troubleshooting. With clear examples, you can optimize your work and overcome new challenges.</p>
+                            <h2 class="h4 fw-bold"><i class="bi bi-puzzle me-2 text-primary"></i>Ready to Extend</h2>
+                            <p class="mb-0">Start with the framework core and extend your application with modules, services and the DBM Platform when you need more. Move from a lightweight application to a complete platform without changing the foundation of your project.</p>
                         </div>
                     </div>
                 </div>
                 <div class="p-4 text-white text-center rounded-bottom dbm-box-welcome-action">
-                    <div class="row g-2">
+                    <div class="row g-4">
                         <div class="col-lg-6">
-                            <h3 class="fw-bold">Start Building New Project</h3>
-                            <p>Your application is ready. Create the first page to replace this start page. Navigate to the `src/Controller/IndexController.php` file and create the first page of your project in the index() method. If you won't be using the installer, delete the `modules` directory.</p>
-                            <p class="m-0">Check out the documentation to get started with DBM Framework.</p>
-                            <p class="mx-0 mt-1 mb-0"><a href="https://dbm.org.pl/tworzenie/dbmframework" class="btn btn-light fw-bold dbm-btn-gradient" target="_blank">Go to documentation</a></p>
-                            <p class="m-0 small">Documentation is being developed.</p>
+                            <h3 class="fw-bold">Build with DBM Framework</h3>
+                            <p>Start with the lightweight DBM Framework core and build your own application. Define your routes, controllers, services and views, then extend the application with the components you need.</p>
+                            <p>Explore the framework documentation and start building.</p>
+                            <p class="mx-0 mt-3 mb-0">
+                                <a href="https://dybem.com/documentation" class="btn btn-light fw-bold dbm-btn-gradient" target="_blank" rel="noopener">Framework Documentation</a>
+                            </p>
+                            <p class="m-0 small">Documentation is available in the project repository.</p>
                         </div>
                         <div class="col-lg-6">
                             <hr class="d-lg-none">
-                            <h3 class="fw-bold">Install DBM Platform</h3>
-                            <p>Use a ready-made authentication system, admin panel, and content management system powered by DBM Framework to launch your website without writing any code. Continue to install the development platform, not just the framework.</p>
-                            <p class="m-0">Create websites, blogs, advanced applications, and APIs with a ready-made tool.</p>
+                            <h3 class="fw-bold">Continue with DBM Platform</h3>
+                            <p>Need more than the framework core? Install DBM Platform and get a ready-to-use application platform with authentication, administration, CMS functionality and modular extensions.</p>
+                            <p>Create websites, apps, and digital content with a comprehensive platform.</p>
                             {% if (!$this->hasRoute('install')) : %}
-                            <p class="alert alert-info mt-3 mb-0 py-1">The content management system is unavailable! To install DBM CMS, download the plugin installer from the project homepage or GitHub repository. If the module is already installed, clear the packages directory of temporary files.</p>
+                                <p class="alert alert-info mt-3 mb-0 py-2">The DBM Platform installer is not available. Make sure the installer module is present in the application.</p>
                             {% else : %}
-                            <p class="mx-0 mt-1 mb-0"><a href="{{ $this->path('install') }}" class="btn btn-light fw-bold dbm-btn-gradient">Run installation</a></p>
-                            <p class="m-0 small">Or delete the installer module, directory `modules`.</p>
-                            {% endif; %}
+                                <p class="mx-0 mt-3 mb-0"><a href="{{ $this->path('install') }}" class="btn btn-light fw-bold dbm-btn-gradient">Run Platform Installer</a></p>
+                                <p class="m-0 small">You can remove the installer module after installation.</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="m-0 mt-3">If DBM Framework has made your work easier or you appreciate the quality of our code, <a href="https://shopping.dbm.org.pl/payments/order.3.html" class="link-light" target="_blank">please support the project financially</a>. Every donation is an investment in its future.</p>
+                            <p class="m-0 mt-4">DBM Framework is part of the <strong>Dybem</strong> ecosystem.</p>
                         </div>
                     </div>
                 </div>

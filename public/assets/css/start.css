@@ -1,11 +1,19 @@
 /* --- Start Stylesheets --- */
 
+:root {
+    --dybem-primary: #0074d4;
+    --dybem-crimson: #e11d48;
+    --dybem-crimson-dark: #be123c;
+    --dybem-crimson-light: #fff1f2;
+    --dybem-blue: #3b7ddd;
+}
+
 body {
     background-color: #f8f9fa;
 }
 
 .dbm-box-welcome-header {
-    background-color: #e11d48;
+    background-color: var(--dybem-crimson);
     color: #fff;
 }
 
@@ -14,7 +22,7 @@ body {
 }
 
 .dbm-box-welcome-header .h-desc {
-    color: #cbd5e1;
+    color: #ffe4e6;
 }
 
 .dbm-box-welcome-features {
@@ -22,11 +30,11 @@ body {
 }
 
 .dbm-box-welcome-action {
-    background: linear-gradient(to right, #ec4899, #8b5cf6, #4f46e5);
-}
-
-.dbm-btn-gradient {
-    background-image: linear-gradient(to right, #e11d48 0%, #be123c 51%, #e11d48 100%);
+    background: linear-gradient(
+        135deg,
+        var(--dybem-crimson) 0%,
+        var(--dybem-blue) 100%
+    );
 }
 
 .dbm-btn-gradient {
@@ -35,16 +43,22 @@ body {
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
+    background-image: linear-gradient(
+        to right,
+        var(--dybem-crimson) 0%,
+        var(--dybem-crimson-dark) 51%,
+        var(--dybem-crimson) 100%
+    );
     background-size: 200% auto;
     background-position: right center;
-    color: white;            
+    color: #fff;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
 }
 
-.dbm-btn-gradient:hover {
+.dbm-btn-gradient:hover, .dbm-btn-gradient:focus {
     background-position: left center;
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
 }
 
@@ -67,7 +81,6 @@ body {
 .dbm-list-language .dropdown-item.active,
 .dbm-list-language .dropdown-item:active {
     background-color: #e8ebf5;
-    color: var(--dbm-primary);
 }
 
 .dbm-list-language .dbm-btn-flag {
@@ -82,12 +95,12 @@ body {
     display: none !important;
 }
 
-
 .dbm-x-small {
-    font-size:.750em;
+    font-size: .750em;
 }
 
 /* --- Installer --- */
+
 .dbm-installer-steps .dbm-step-index {
     width: 32px;
     height: 32px;
@@ -99,21 +112,14 @@ body {
     font-weight: bold;
 }
 
-/* .list-group-item.active {
-    color: #000;
-    background-color: #e2e8f0;
-    border-color: #cbd5e1;
-}*/
-
 /* --- Media queries --- */
-/* Medium devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
     .dbm-box-welcome-header .h-desc {
         text-indent: 5%;
     }
 }
 
-/* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
     .dbm-nav-max-width {
         max-width: 60px;
