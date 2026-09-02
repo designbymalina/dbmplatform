@@ -32,6 +32,7 @@ use Dbm\Core\DependencyContainer;
 use Dbm\Core\Module\CoreModuleServiceProvider;
 use Dbm\Events\EventDispatcher;
 use Dbm\Exceptions\ExceptionHandler;
+// use Dbm\Http\HttpServiceProvider;
 use Dbm\Infrastructure\Cookie\CookieManager;
 use Dbm\Infrastructure\Filesystem\Filesystem;
 use Dbm\Infrastructure\Session\SessionManager;
@@ -115,6 +116,10 @@ return function (DependencyContainer $container): DependencyContainer {
             $c->get(SessionManager::class)
         )
     );
+
+    // --- API HTTP Client (Optional) ---
+
+    // HttpServiceProvider::register($container);
 
     // ===== VIEW =====
 
