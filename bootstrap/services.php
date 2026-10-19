@@ -25,20 +25,20 @@
  * $container->set() - Creates a new instance on each request (rarely needed)
  * $container->get() - Gets instance, if singleton same, if set new
  *
- * Use: App\Infrastructure\Mail\MailServiceProvider;
- * or: Dbm\Infrastructure\Mail\MailServiceProvider;
+ * Use: Dbm\Infrastructure\Mail\MailServiceProvider;
+ * or: App\Infrastructure\Mail\MailServiceProvider;
  */
 
 declare(strict_types=1);
 
-// use App\Infrastructure\Mail\MailServiceProvider;
 use Dbm\Core\DependencyContainer;
 use Dbm\Core\Module\CoreModuleServiceProvider;
 use Dbm\Events\EventDispatcher;
 use Dbm\Exceptions\ExceptionHandler;
-// use Dbm\Http\HttpServiceProvider;
+use Dbm\Http\HttpServiceProvider;
 use Dbm\Infrastructure\Cookie\CookieManager;
 use Dbm\Infrastructure\Filesystem\Filesystem;
+// use Dbm\Infrastructure\Mail\MailServiceProvider;
 use Dbm\Infrastructure\Session\SessionManager;
 use Dbm\Views\TemplateEngine;
 use Dbm\Infrastructure\Log\Logger;
@@ -121,13 +121,13 @@ return function (DependencyContainer $container): DependencyContainer {
         )
     );
 
-    // --- MAILER (Optional) --
+    // --- MAILER (Optional) ---
 
     // MailServiceProvider::register($container);
 
-    // --- API HTTP Client (Optional) ---
+    // ===== API HTTP Client (Optional) =====
 
-    // HttpServiceProvider::register($container);
+    HttpServiceProvider::register($container);
 
     // ===== VIEW =====
 
