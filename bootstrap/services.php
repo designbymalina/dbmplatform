@@ -24,10 +24,14 @@
  * $container->singleton() - Creates one instance for the entire lifecycle
  * $container->set() - Creates a new instance on each request (rarely needed)
  * $container->get() - Gets instance, if singleton same, if set new
+ *
+ * Use: App\Infrastructure\Mail\MailServiceProvider;
+ * or: Dbm\Infrastructure\Mail\MailServiceProvider;
  */
 
 declare(strict_types=1);
 
+// use App\Infrastructure\Mail\MailServiceProvider;
 use Dbm\Core\DependencyContainer;
 use Dbm\Core\Module\CoreModuleServiceProvider;
 use Dbm\Events\EventDispatcher;
@@ -116,6 +120,10 @@ return function (DependencyContainer $container): DependencyContainer {
             $c->get(SessionManager::class)
         )
     );
+
+    // --- MAILER (Optional) --
+
+    // MailServiceProvider::register($container);
 
     // --- API HTTP Client (Optional) ---
 
